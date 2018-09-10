@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StuQuation));
             this.grpAnswers = new System.Windows.Forms.GroupBox();
             this.btn05 = new System.Windows.Forms.Button();
-            this.btn01 = new System.Windows.Forms.Button();
             this.btn04 = new System.Windows.Forms.Button();
             this.btn02 = new System.Windows.Forms.Button();
             this.btn03 = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             this.pnlCategory = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pctQuation = new System.Windows.Forms.PictureBox();
+            this.btn01 = new System.Windows.Forms.Button();
             this.grpAnswers.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlAnswers.SuspendLayout();
@@ -84,9 +84,9 @@
             this.grpAnswers.Controls.Add(this.btn03);
             this.grpAnswers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAnswers.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.grpAnswers.Location = new System.Drawing.Point(5, 70);
+            this.grpAnswers.Location = new System.Drawing.Point(5, 67);
             this.grpAnswers.Name = "grpAnswers";
-            this.grpAnswers.Size = new System.Drawing.Size(394, 70);
+            this.grpAnswers.Size = new System.Drawing.Size(394, 72);
             this.grpAnswers.TabIndex = 54;
             this.grpAnswers.TabStop = false;
             // 
@@ -98,21 +98,8 @@
             this.btn05.Name = "btn05";
             this.btn05.Size = new System.Drawing.Size(54, 51);
             this.btn05.TabIndex = 50;
-            this.btn05.Text = "5";
             this.btn05.UseVisualStyleBackColor = true;
             this.btn05.Click += new System.EventHandler(this.AnswerClick);
-            // 
-            // btn01
-            // 
-            this.btn01.Font = new System.Drawing.Font("Microsoft JhengHei Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn01.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btn01.Location = new System.Drawing.Point(6, 13);
-            this.btn01.Name = "btn01";
-            this.btn01.Size = new System.Drawing.Size(54, 51);
-            this.btn01.TabIndex = 46;
-            this.btn01.Text = "1";
-            this.btn01.UseVisualStyleBackColor = true;
-            this.btn01.Click += new System.EventHandler(this.AnswerClick);
             // 
             // btn04
             // 
@@ -122,7 +109,6 @@
             this.btn04.Name = "btn04";
             this.btn04.Size = new System.Drawing.Size(54, 51);
             this.btn04.TabIndex = 49;
-            this.btn04.Text = "4";
             this.btn04.UseVisualStyleBackColor = true;
             this.btn04.Click += new System.EventHandler(this.AnswerClick);
             // 
@@ -134,7 +120,6 @@
             this.btn02.Name = "btn02";
             this.btn02.Size = new System.Drawing.Size(54, 51);
             this.btn02.TabIndex = 47;
-            this.btn02.Text = "2";
             this.btn02.UseVisualStyleBackColor = true;
             this.btn02.Click += new System.EventHandler(this.AnswerClick);
             // 
@@ -146,7 +131,6 @@
             this.btn03.Name = "btn03";
             this.btn03.Size = new System.Drawing.Size(54, 51);
             this.btn03.TabIndex = 48;
-            this.btn03.Text = "3";
             this.btn03.UseVisualStyleBackColor = true;
             this.btn03.Click += new System.EventHandler(this.AnswerClick);
             // 
@@ -166,7 +150,7 @@
             // 
             this.txtQuationNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtQuationNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuationNum.Location = new System.Drawing.Point(171, 37);
+            this.txtQuationNum.Location = new System.Drawing.Point(171, 34);
             this.txtQuationNum.Multiline = true;
             this.txtQuationNum.Name = "txtQuationNum";
             this.txtQuationNum.Size = new System.Drawing.Size(70, 33);
@@ -180,7 +164,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(25)));
             this.btnNext.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnNext.Location = new System.Drawing.Point(313, 36);
+            this.btnNext.Location = new System.Drawing.Point(313, 34);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(86, 33);
             this.btnNext.TabIndex = 55;
@@ -379,7 +363,7 @@
             // pnlAnswers
             // 
             this.pnlAnswers.Controls.Add(this.grp_answers);
-            this.pnlAnswers.Location = new System.Drawing.Point(273, 549);
+            this.pnlAnswers.Location = new System.Drawing.Point(301, 568);
             this.pnlAnswers.Name = "pnlAnswers";
             this.pnlAnswers.Size = new System.Drawing.Size(413, 152);
             this.pnlAnswers.TabIndex = 65;
@@ -393,7 +377,7 @@
             this.grp_answers.Controls.Add(this.txtQuationNum);
             this.grp_answers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_answers.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.grp_answers.Location = new System.Drawing.Point(3, 5);
+            this.grp_answers.Location = new System.Drawing.Point(3, 3);
             this.grp_answers.Name = "grp_answers";
             this.grp_answers.Size = new System.Drawing.Size(407, 144);
             this.grp_answers.TabIndex = 70;
@@ -405,7 +389,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrev.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(25)));
             this.btnPrev.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPrev.Location = new System.Drawing.Point(6, 37);
+            this.btnPrev.Location = new System.Drawing.Point(6, 34);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(86, 33);
             this.btnPrev.TabIndex = 49;
@@ -436,7 +420,7 @@
             this.ticketToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
             this.menuUser.Name = "menuUser";
-            this.menuUser.Size = new System.Drawing.Size(1370, 28);
+            this.menuUser.Size = new System.Drawing.Size(1349, 28);
             this.menuUser.TabIndex = 67;
             this.menuUser.Text = "menuStrip1";
             // 
@@ -477,13 +461,24 @@
             this.pctQuation.TabIndex = 69;
             this.pctQuation.TabStop = false;
             // 
+            // btn01
+            // 
+            this.btn01.Font = new System.Drawing.Font("Microsoft JhengHei Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn01.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btn01.Location = new System.Drawing.Point(6, 13);
+            this.btn01.Name = "btn01";
+            this.btn01.Size = new System.Drawing.Size(54, 51);
+            this.btn01.TabIndex = 46;
+            this.btn01.UseVisualStyleBackColor = true;
+            this.btn01.Click += new System.EventHandler(this.AnswerClick);
+            // 
             // StuQuation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1028, 749);
             this.Controls.Add(this.pctQuation);
             this.Controls.Add(this.pnlAnswers);
             this.Controls.Add(this.pnlCategory);
@@ -492,11 +487,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "StuQuation";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Suallar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Closing);
             this.Load += new System.EventHandler(this.StuQuation_Load);
+            this.SizeChanged += new System.EventHandler(this.StuQuation_SizeChanged);
             this.Resize += new System.EventHandler(this.formResize);
             this.grpAnswers.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -519,7 +515,6 @@
         #endregion
         private System.Windows.Forms.GroupBox grpAnswers;
         private System.Windows.Forms.Button btn05;
-        private System.Windows.Forms.Button btn01;
         private System.Windows.Forms.Button btn04;
         private System.Windows.Forms.Button btn02;
         private System.Windows.Forms.Button btn03;
@@ -552,5 +547,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox grp_answers;
         private System.Windows.Forms.PictureBox pctQuation;
+        private System.Windows.Forms.Button btn01;
     }
 }

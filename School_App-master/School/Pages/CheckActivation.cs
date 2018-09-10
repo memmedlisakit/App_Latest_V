@@ -48,14 +48,13 @@ namespace School.Pages
             if (code == "azyhq75357536241598azyhq.az")
             {
                 insertLocalActivation(code, username, 1, comp_info, email, "ok");
-                return;
-               
+                return; 
             }
             else
             {
                 if (this.CheckForInternetConnection())
                 {
-                    insertLocalActivation(code, username, 1, comp_info, email, "ok");
+                    UpdateData(code, username, comp_info, email, TOKET);
                     return;
                 }
                 else
@@ -73,7 +72,7 @@ namespace School.Pages
             {
                 using (var client = new WebClient())
                 {
-                    Uri url = new Uri("http://memmedlisakit-001-site1.itempurl.com/api/activations");
+                    Uri url = new Uri("http://sakit.azurewebsites.net/api/activations");
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var response = client.DownloadString($"{url}?code={_code}&username={_username}&comp_info={_comp_info}&email={_email}&token={_token}");
                     insertLocalActivation(_code, _username, 1, _comp_info, _email, response.ToLower());
@@ -92,7 +91,7 @@ namespace School.Pages
             {
                 using (var client = new WebClient())
                 {
-                    Uri url = new Uri("http://memmedlisakit-001-site1.itempurl.com/api/students");
+                    Uri url = new Uri("http://sakit.azurewebsites.net/api/students");
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var response = client.DownloadString($"{url}?code={_json}&token={_token}");
                 }
@@ -126,7 +125,7 @@ namespace School.Pages
                     email = Login.LoginedUser.Email,
                     gender = Login.LoginedUser.Gender
                 };
-                string json = new JavaScriptSerializer().Serialize(student);
+                string json = new JavaScriptSerializer().Serialize(student); 
                 AddStudent(json, STUDENT_TOKEN);
             }
             else
@@ -147,7 +146,7 @@ namespace School.Pages
             try
             {
                 using (var client = new WebClient())
-                using (client.OpenRead("http://memmedlisakit-001-site1.itempurl.com/"))
+                using (client.OpenRead("http://sakit.azurewebsites.net/"))
                 {
                     return true;
                 }

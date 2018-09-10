@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 473);
+            this.ClientSize = new System.Drawing.Size(1028, 473);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.label3);
@@ -131,7 +131,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ActivatedStudents";
             this.Text = "Tələbələr";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Closing);
+            this.Load += new System.EventHandler(this.ActivatedStudents_Load);
+            this.Resize += new System.EventHandler(this.FormResize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

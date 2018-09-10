@@ -27,7 +27,10 @@ namespace School.Pages
         public int Index { get; set; } = 0;
 
         public int CorrectCount { get; set; } = 0;
-         
+        public bool CheckCombo { get; private set; } = false;
+        public string SelectedText { get; private set; }
+        public bool IsClose { get; private set; } = true;
+
         public StuQuation()
         {
             InitializeComponent(); 
@@ -45,6 +48,17 @@ namespace School.Pages
          
         private void Closing(object sender, FormClosingEventArgs e)
         {
+            if (IsClose)
+            {
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    SendKeys.Send("{esc}");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
             try
             {
                 Dashboard.ThisForm.Show();
@@ -228,38 +242,48 @@ namespace School.Pages
      
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cmbCategory.SelectedIndex == -1)  return; 
+            if (CheckCombo && SelectedText != cmbCategory.Text)
+            {
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    cmbCategory.Text = SelectedText;
+                    return;
+                }
+            }
 
-            int id = Convert.ToInt32((this.cmbCategory.SelectedItem as ComboboxItem).Value);
-            this.SelectedQuations = this.Quations.Where(q => q.Category_id == id).ToList();
-            this.lblQuationCount.Text = SelectedQuations.Count.ToString();
-            //cmbCategory.SelectedIndex = 1;
-            
-            this.Index = 0;
-            this.setQuation();
-            this.cleaner();  
-            this.cmbIncorrectQuations.Items.Clear();
-            this.cmbIncorrectQuations.Items.Add("");
-            this.IncorrectQuations.Clear();
-            this.lblCorretCount.Text = "0";
-            this.lblIncorretCount.Text = "0";
-           
-          
-            this.rchCategory.Text = this.cmbCategory.Text;
-            this.CorrectCount = 0;
+            if (SelectedText != cmbCategory.Text)
+            {
+                if (this.cmbCategory.SelectedIndex == -1) return;
+
+                int id = Convert.ToInt32((this.cmbCategory.SelectedItem as ComboboxItem).Value);
+                this.SelectedQuations = this.Quations.Where(q => q.Category_id == id).ToList();
+                this.lblQuationCount.Text = SelectedQuations.Count.ToString();
+
+                this.Index = 0;
+                this.setQuation();
+                this.cleaner();
+                this.cmbIncorrectQuations.Items.Clear();
+                this.cmbIncorrectQuations.Items.Add("");
+                this.IncorrectQuations.Clear();
+                this.lblCorretCount.Text = "0";
+                this.lblIncorretCount.Text = "0";
+
+
+                this.rchCategory.Text = this.cmbCategory.Text;
+                this.CorrectCount = 0;
+
+                SelectedText = cmbCategory.Text;
+                CheckCombo = true;
+            }   
         }
 
         private void cmbIncorrectQuations_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.cmbIncorrectQuations.SelectedItem.ToString() == "") return;
             int id = Convert.ToInt32((this.cmbIncorrectQuations.SelectedItem as ComboboxItem).Text);
-           // this.SelectedQuations = this.Quations.Where(q => q.Id == id).ToList();
             this.Index = (id - 1);
-            this.setQuation();
-            //this.cmbCategory.SelectedIndex = -1;
-            //this.rchCategory.Text = "";
-            //this.txtQuationNum.Text = "";
-            //this.lblQuationCount.Text = "0";
+            this.setQuation(); 
         }
          
         private void rtbSender_KeyDown(object sender, KeyEventArgs e)
@@ -284,6 +308,12 @@ namespace School.Pages
 
         private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            this.IsClose = false;
             try
             {
                 this.Hide();
@@ -293,27 +323,19 @@ namespace School.Pages
             {
                
                 MessageBox.Show("Bilet əlavə olunmuyub");
-            }
-          
-            //StuQuation stq = new StuQuation();
-            //stq.Hide();
-            //Login lgn = new Login();
-            //lgn.Hide();
-            //Dashboard dash = new Dashboard();
-            //dash.Hide();
-            //new StuTicket().ShowDialog();
+            } 
         } 
 
         private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             this.Close();
-             Dashboard.ThisForm.Show();
-            //Dashboard dashboard = new Dashboard();
-            //dashboard.Show();
-            //StuQuation stq = new StuQuation();
-            //stq.Hide();
-
-            //new Dashboard().ShowDialog();
+            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            this.IsClose = false;
+            this.Close();
+             Dashboard.ThisForm.Show(); 
         }
 
 
@@ -359,14 +381,20 @@ namespace School.Pages
 
             //===============================For Panel Answers============================ 
             pnlAnswers.Top = pnlInfo.Top;
-            pnlAnswers.Left = (this.Width / 2) - (pnlAnswers.Width / 2);
-            pnlAnswers.Width = this.Width / 4;
+            pnlAnswers.Width = (this.Width / 3);
+            pnlAnswers.Height = pnlInfo.Height;
+            int left = (pnlInfo.Left + pnlInfo.Width);
+            pnlAnswers.Left = (((pnlCategory.Left - left) - pnlAnswers.Width) / 2) + left + 5;
             grp_answers.Width = pnlAnswers.Width - 10;
             grpAnswers.Width = grp_answers.Width - 10;
+            grpAnswers.Left = (grp_answers.Width - grpAnswers.Width) / 2;
             int count = 5;
+            int number = 1;
             foreach (Control ctr in grpAnswers.Controls)
             {
                 ctr.Left = count;
+                ctr.Text = (number++).ToString();
+                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
                 count += grpAnswers.Width / 5;
                 ctr.Width = grpAnswers.Width / 5 - 8;
                 ctr.Height = ctr.Width - 5;
@@ -387,7 +415,8 @@ namespace School.Pages
             btnNext.Left = txtQuationNum.Left + txtQuationNum.Width;
 
             //===============================For Panel Categories========================= 
-            pnlCategory.Top = pnlInfo.Top;
+            pnlCategory.Top = pnlAnswers.Top - 4;
+            pnlCategory.Height = pnlInfo.Height;
             pnlCategory.Left = (this.Width - pnlCategory.Width - 20);
         }
 
@@ -404,14 +433,15 @@ namespace School.Pages
 
             //===============================For Panel Answers============================ 
             pnlAnswers.Top = pnlInfo.Top;
-            pnlAnswers.Left = (this.Width / 2) - (pnlAnswers.Width / 2);
-            pnlAnswers.Width = this.Width / 4;
+            pnlAnswers.Width = (this.Width / 3);
+            pnlAnswers.Left = (this.Width / 2) - (pnlAnswers.Width / 2) + 10;
             grp_answers.Width = pnlAnswers.Width - 10;
-            grpAnswers.Width = grp_answers.Width - 10;
+            grpAnswers.Width = grp_answers.Width - 12;
             int count = 5;
             foreach (Control ctr in grpAnswers.Controls)
             {
                 ctr.Left = count;
+                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
                 count += grpAnswers.Width / 5;
                 ctr.Width = grpAnswers.Width / 5 - 8;
                 ctr.Height = ctr.Width - 5;
@@ -432,8 +462,32 @@ namespace School.Pages
             btnNext.Left = txtQuationNum.Left + txtQuationNum.Width; 
 
             //===============================For Panel Categories========================= 
-            pnlCategory.Top = pnlInfo.Top;
-            pnlCategory.Left = (this.Width - pnlCategory.Width - 20); 
+            pnlCategory.Top = pnlAnswers.Top - 4;
+            pnlCategory.Left = (this.Width - pnlCategory.Width - 20);
+
+
+            if (WindowState == FormWindowState.Maximized)
+            {
+                this.Width = 1000;
+                this.Height = 500;
+
+            }
         }
+
+        private void StuQuation_SizeChanged(object sender, EventArgs e)
+        {
+            int left = (pnlInfo.Left + pnlInfo.Width);
+            pnlAnswers.Left = (((pnlCategory.Left - left) - pnlAnswers.Width) / 2) + left + 5;
+            int count = 5;
+            foreach (Control ctr in grpAnswers.Controls)
+            {
+                ctr.Left = count;
+                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
+                count += grpAnswers.Width / 5;
+                ctr.Width = grpAnswers.Width / 5 - 8;
+                ctr.Height = ctr.Width - 5;
+            }
+
+        } 
     }
 }

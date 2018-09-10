@@ -39,14 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.btnAll = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpInfo = new System.Windows.Forms.GroupBox();
             this.rdEmail = new System.Windows.Forms.RadioButton();
             this.rdUsername = new System.Windows.Forms.RadioButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpStudents = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpInfo.SuspendLayout();
+            this.grpStudents.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvData
@@ -127,7 +127,7 @@
             // 
             this.btnAll.Font = new System.Drawing.Font("Microsoft JhengHei Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAll.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnAll.Location = new System.Drawing.Point(1023, 60);
+            this.btnAll.Location = new System.Drawing.Point(673, 102);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(215, 30);
             this.btnAll.TabIndex = 14;
@@ -135,18 +135,18 @@
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
-            // groupBox1
+            // grpInfo
             // 
-            this.groupBox1.Controls.Add(this.rdEmail);
-            this.groupBox1.Controls.Add(this.rdUsername);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(673, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 84);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Axtar";
+            this.grpInfo.Controls.Add(this.rdEmail);
+            this.grpInfo.Controls.Add(this.rdUsername);
+            this.grpInfo.Controls.Add(this.txtSearch);
+            this.grpInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpInfo.Location = new System.Drawing.Point(673, 12);
+            this.grpInfo.Name = "grpInfo";
+            this.grpInfo.Size = new System.Drawing.Size(315, 84);
+            this.grpInfo.TabIndex = 15;
+            this.grpInfo.TabStop = false;
+            this.grpInfo.Text = "Axtar";
             // 
             // rdEmail
             // 
@@ -180,24 +180,24 @@
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchUser);
             // 
-            // groupBox2
+            // grpStudents
             // 
-            this.groupBox2.Controls.Add(this.dgvData);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 102);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1253, 553);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Aktivasiyalar";
+            this.grpStudents.Controls.Add(this.dgvData);
+            this.grpStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStudents.Location = new System.Drawing.Point(12, 137);
+            this.grpStudents.Name = "grpStudents";
+            this.grpStudents.Size = new System.Drawing.Size(1253, 553);
+            this.grpStudents.TabIndex = 16;
+            this.grpStudents.TabStop = false;
+            this.grpStudents.Text = "Aktivasiyalar";
             // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 657);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1028, 657);
+            this.Controls.Add(this.grpStudents);
+            this.Controls.Add(this.grpInfo);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblCount);
@@ -206,11 +206,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Student";
             this.Text = "Activasiyalar";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Closing);
+            this.Load += new System.EventHandler(this.Student_Load);
+            this.Resize += new System.EventHandler(this.FormResize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.grpInfo.ResumeLayout(false);
+            this.grpInfo.PerformLayout();
+            this.grpStudents.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,11 +226,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Button btnAll;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpInfo;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rdEmail;
         private System.Windows.Forms.RadioButton rdUsername;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpStudents;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

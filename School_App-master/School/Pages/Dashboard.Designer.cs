@@ -63,7 +63,7 @@
             this.profileToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
             this.menuUser.Name = "menuUser";
-            this.menuUser.Size = new System.Drawing.Size(1668, 28);
+            this.menuUser.Size = new System.Drawing.Size(1415, 28);
             this.menuUser.TabIndex = 0;
             this.menuUser.Text = "menuStrip1";
             // 
@@ -106,9 +106,9 @@
             this.grpStuProfile.Controls.Add(this.txtName);
             this.grpStuProfile.Controls.Add(this.ckbMale);
             this.grpStuProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpStuProfile.Location = new System.Drawing.Point(788, 127);
+            this.grpStuProfile.Location = new System.Drawing.Point(788, 150);
             this.grpStuProfile.Name = "grpStuProfile";
-            this.grpStuProfile.Size = new System.Drawing.Size(880, 238);
+            this.grpStuProfile.Size = new System.Drawing.Size(627, 238);
             this.grpStuProfile.TabIndex = 4;
             this.grpStuProfile.TabStop = false;
             this.grpStuProfile.Text = "Hesabım";
@@ -118,7 +118,7 @@
             // 
             this.ckbFemale.AutoSize = true;
             this.ckbFemale.Enabled = false;
-            this.ckbFemale.Location = new System.Drawing.Point(783, 172);
+            this.ckbFemale.Location = new System.Drawing.Point(528, 176);
             this.ckbFemale.Name = "ckbFemale";
             this.ckbFemale.Size = new System.Drawing.Size(69, 21);
             this.ckbFemale.TabIndex = 14;
@@ -131,7 +131,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label5.Location = new System.Drawing.Point(619, 59);
+            this.label5.Location = new System.Drawing.Point(364, 38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 18);
             this.label5.TabIndex = 11;
@@ -141,7 +141,7 @@
             // 
             this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(622, 80);
+            this.txtEmail.Location = new System.Drawing.Point(367, 59);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(230, 30);
@@ -152,7 +152,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(321, 59);
+            this.label1.Location = new System.Drawing.Point(18, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 18);
             this.label1.TabIndex = 7;
@@ -162,7 +162,7 @@
             // 
             this.txtSurname.Enabled = false;
             this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurname.Location = new System.Drawing.Point(324, 80);
+            this.txtSurname.Location = new System.Drawing.Point(21, 172);
             this.txtSurname.Multiline = true;
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(230, 30);
@@ -173,7 +173,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(17, 59);
+            this.label2.Location = new System.Drawing.Point(18, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 18);
             this.label2.TabIndex = 5;
@@ -183,7 +183,7 @@
             // 
             this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(20, 80);
+            this.txtName.Location = new System.Drawing.Point(21, 59);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(230, 30);
@@ -193,7 +193,7 @@
             // 
             this.ckbMale.AutoSize = true;
             this.ckbMale.Enabled = false;
-            this.ckbMale.Location = new System.Drawing.Point(612, 167);
+            this.ckbMale.Location = new System.Drawing.Point(367, 176);
             this.ckbMale.Name = "ckbMale";
             this.ckbMale.Size = new System.Drawing.Size(52, 21);
             this.ckbMale.TabIndex = 2;
@@ -217,9 +217,9 @@
             this.pctMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctMain.Location = new System.Drawing.Point(1251, 90);
+            this.pctMain.Location = new System.Drawing.Point(884, 394);
             this.pctMain.Name = "pctMain";
-            this.pctMain.Size = new System.Drawing.Size(1192, 763);
+            this.pctMain.Size = new System.Drawing.Size(2722, 558);
             this.pctMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctMain.TabIndex = 1;
             this.pctMain.TabStop = false;
@@ -230,14 +230,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(823, 595);
             this.Controls.Add(this.pnlAbout);
             this.Controls.Add(this.pctMain);
             this.Controls.Add(this.grpStuProfile);
             this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuUser;
-            this.MinimumSize = new System.Drawing.Size(1150, 600);
+            this.MinimumSize = new System.Drawing.Size(817, 500);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

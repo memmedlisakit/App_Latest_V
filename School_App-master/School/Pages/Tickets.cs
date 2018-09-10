@@ -131,5 +131,19 @@ namespace School.Pages
             this.tickets = this.selectAllTicket();
             this.fillPanel();
         }
+
+        private void Tickets_Load(object sender, EventArgs e)
+        {
+            grpTickets.Width = this.Width - 50;
+            dgwTickets.Width = grpTickets.Width - 13;
+            btnAddTicket.Left = (this.Width - btnAddTicket.Width) - 50;
+        }
+
+        private void FormResize(object sender, EventArgs e)
+        {
+            grpTickets.Width = this.Width - 50;
+            dgwTickets.Width = grpTickets.Width - 13;
+            btnAddTicket.Left = (this.Width - btnAddTicket.Width) - 50;
+        }
     }
 }

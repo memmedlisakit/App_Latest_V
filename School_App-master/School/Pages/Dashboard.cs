@@ -160,9 +160,12 @@ namespace School.Pages
             this.pctMain.Left = ((this.Width - this.pctMain.Width) / 2 - 8);
             this.pnlAbout.Left = ((this.Width - this.pnlAbout.Width) / 2 - 8);
             this.pnlAbout.Height = this.Height - 100;
-            //this.Top = (this.Height - this.pctMain.Height) / 2;
-
-            //this.lbl_about.Font = new Font("Microsoft Sans Serif", this.Width / 95, FontStyle.Italic);
+            
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                this.Width = 1000;
+                this.Height = 500;
+            }
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -176,11 +179,11 @@ namespace School.Pages
             this.pnlAbout.Left = (this.Width - this.pnlAbout.Width) / 2;
             this.pnlAbout.Height = this.Height - 100;
             this.pnlAbout.Top = 50;
-           
 
-             
 
-           // this.lbl_about.Font = new Font("Microsoft Sans Serif", this.Width / 95, FontStyle.Italic);
+
+
+            // this.lbl_about.Font = new Font("Microsoft Sans Serif", this.Width / 95, FontStyle.Italic);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

@@ -33,7 +33,7 @@ namespace School.Pages
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://memmedlisakit-001-site1.itempurl.com/");
+                client.BaseAddress = new Uri("http://sakit.azurewebsites.net/");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = client.GetAsync($"api/students?token={STUDENT_TOKEN}").Result;
                 if (response.IsSuccessStatusCode)
@@ -59,6 +59,16 @@ namespace School.Pages
             {
                 this.lblError.Text = "Serverə qoşularkən xəta baş verdi, zəhmət olmasa internet bağlantınızı yoxlayin";
             }
+        }
+
+        private void ActivatedStudents_Load(object sender, EventArgs e)
+        {
+            dgvData.Width = this.Width - 40;
+        }
+
+        private void FormResize(object sender, EventArgs e)
+        {
+            dgvData.Width = this.Width - 40;
         }
     }
 }

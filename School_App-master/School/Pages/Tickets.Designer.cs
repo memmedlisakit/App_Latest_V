@@ -108,14 +108,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 485);
+            this.ClientSize = new System.Drawing.Size(1270, 485);
             this.Controls.Add(this.grpTickets);
             this.Controls.Add(this.btnAddTicket);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tickets";
             this.Text = "Biletlər";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Closing);
+            this.Load += new System.EventHandler(this.Tickets_Load);
+            this.Resize += new System.EventHandler(this.FormResize);
             this.grpTickets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwTickets)).EndInit();
             this.ResumeLayout(false);

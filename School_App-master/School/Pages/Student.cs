@@ -38,7 +38,7 @@ namespace School.Pages
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://memmedlisakit-001-site1.itempurl.com/");
+                client.BaseAddress = new Uri("http://sakit.azurewebsites.net/");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = client.GetAsync($"api/activations?token={TOKET}").Result;
                 if (response.IsSuccessStatusCode)
@@ -105,6 +105,26 @@ namespace School.Pages
                 this.dgvData.Rows[index].Cells[4].Value = item.status ? "Activated" : "No Activated";
                 index++;
             }
+        }
+
+        private void Student_Load(object sender, EventArgs e)
+        {
+            grpStudents.Width = this.Width - 50;
+            grpStudents.Height = this.Height - 200;
+            dgvData.Width = grpStudents.Width - 20;
+            dgvData.Height = grpStudents.Height - 20;
+            grpInfo.Left = (this.Width - grpInfo.Width) - 40;
+            btnAll.Left = grpInfo.Left;
+        }
+
+        private void FormResize(object sender, EventArgs e)
+        {
+            grpStudents.Width = this.Width - 50;
+            grpStudents.Height = this.Height - 200;
+            dgvData.Width = grpStudents.Width - 20;
+            dgvData.Height = grpStudents.Height - 20;
+            grpInfo.Left = (this.Width - grpInfo.Width) - 40;
+            btnAll.Left = grpInfo.Left;
         }
     }
 }

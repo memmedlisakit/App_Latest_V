@@ -34,14 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSignIn = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpLogin = new System.Windows.Forms.GroupBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.ckbAdmin = new System.Windows.Forms.CheckBox();
             this.lblError = new System.Windows.Forms.Label();
             this.linkSignUp = new System.Windows.Forms.LinkLabel();
-            this.groupBox1.SuspendLayout();
+            this.grpLogin.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,20 +99,20 @@
             this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
-            // groupBox1
+            // grpLogin
             // 
-            this.groupBox1.Controls.Add(this.pnlLogin);
-            this.groupBox1.Controls.Add(this.ckbAdmin);
-            this.groupBox1.Controls.Add(this.lblError);
-            this.groupBox1.Controls.Add(this.btnSignIn);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox1.Location = new System.Drawing.Point(256, 93);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(334, 315);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Daxil ol";
+            this.grpLogin.Controls.Add(this.pnlLogin);
+            this.grpLogin.Controls.Add(this.ckbAdmin);
+            this.grpLogin.Controls.Add(this.lblError);
+            this.grpLogin.Controls.Add(this.btnSignIn);
+            this.grpLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpLogin.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.grpLogin.Location = new System.Drawing.Point(256, 93);
+            this.grpLogin.Name = "grpLogin";
+            this.grpLogin.Size = new System.Drawing.Size(334, 315);
+            this.grpLogin.TabIndex = 6;
+            this.grpLogin.TabStop = false;
+            this.grpLogin.Text = "Daxil ol";
             // 
             // pnlLogin
             // 
@@ -187,18 +187,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(854, 501);
+            this.ClientSize = new System.Drawing.Size(823, 501);
             this.Controls.Add(this.linkSignUp);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(870, 540);
-            this.MinimumSize = new System.Drawing.Size(870, 540);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Daxil ol";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Closing);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.Login_Load);
+            this.Resize += new System.EventHandler(this.FormResize);
+            this.grpLogin.ResumeLayout(false);
+            this.grpLogin.PerformLayout();
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
@@ -213,7 +215,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSignIn;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpLogin;
         private System.Windows.Forms.LinkLabel linkSignUp;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;

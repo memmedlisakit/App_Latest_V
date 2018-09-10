@@ -28,6 +28,12 @@ namespace School.Pages
 
         public int CorrectCount { get; set; }
 
+        public string SelectedText { get; set; }
+
+        public bool CheckCombo { get; set; } = false;
+
+        public bool IsClose { get; set; } = true;
+
         System.Timers.Timer Timer = new System.Timers.Timer();
 
         System.Timers.Timer MessageTimer = new System.Timers.Timer();
@@ -59,6 +65,17 @@ namespace School.Pages
 
         private void Closing(object sender, FormClosingEventArgs e)
         {
+            if (IsClose) 
+            {
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    SendKeys.Send("{esc}");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
             this.Timer.Stop();
             this.Timer.Dispose();
             try
@@ -68,7 +85,6 @@ namespace School.Pages
             catch (Exception)
             {
             }
-            //new Loading().Hide();
         }
 
         private List<T> getData<T>(string table)
@@ -162,335 +178,85 @@ namespace School.Pages
 
         private void cmbTicket_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.selectedQuatins.Clear();
-            this.IncorrectQuations.Clear();
-            this.Index = 0;
-            this.CorrectCount = 0;
-            int tickt_id = Convert.ToInt32((cmbTicket.SelectedItem as ComboboxItem).Value);
-            foreach (P_TicketAndQuation item in this.Pivot.Where(p => p.Ticket_id == tickt_id).ToList())
+            if (CheckCombo && SelectedText != cmbTicket.Text)
             {
-                this.selectedQuatins.Add(this.Quations.First(q => q.Id == item.Quation_id));
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    cmbTicket.Text = SelectedText;
+                    return;
+                }
             }
-            this.setQuation();
-            foreach (Button btn in this.grpQuations.Controls)
+            if(SelectedText != cmbTicket.Text)
             {
-                btn.BackColor = Color.Black;
-            }
+                this.selectedQuatins.Clear();
+                this.IncorrectQuations.Clear();
+                this.Index = 0;
+                this.CorrectCount = 0;
+                int tickt_id = Convert.ToInt32((cmbTicket.SelectedItem as ComboboxItem).Value);
+                foreach (P_TicketAndQuation item in this.Pivot.Where(p => p.Ticket_id == tickt_id).ToList())
+                {
+                    this.selectedQuatins.Add(this.Quations.First(q => q.Id == item.Quation_id));
+                }
+                this.setQuation();
+                foreach (Button btn in this.grpQuations.Controls)
+                {
+                    btn.BackColor = Color.Black;
+                    btn.Enabled = true;
+                }
 
-            this.Minut = 15;
-            this.Second = 0;
-            this.lblDuration.Text = "15:00";
+                this.Minut = 15;
+                this.Second = 0;
+                this.lblDuration.Text = "15:00";
+
+                SelectedText = cmbTicket.Text;
+                CheckCombo = true;
+            }
         }
-
+          
         private void btnAnswer(object sender, EventArgs e)
         {
-
+            foreach (Button _btn in grpAnswers.Controls)
+            {
+                _btn.Enabled = false;
+            }
             bool result;
             Button btn = sender as Button;
             string answer = this.selectedQuatins[Index].Answer;
 
             if (btn.Text == answer)
-            {
+            { 
+                lblResponse1.Text = "Cavab Doğrudur";
+                lblResponse1.Left = (this.Width - lblResponse1.Width) / 2;
+                lblResponse1.ForeColor = Color.Green;
 
-
-                this.lblResponse1.Text = "Cavab Doğrudur";
-
-                //btn.Enabled = false;
-                this.lblResponse1.ForeColor = Color.Green;
                 btn.BackColor = Color.LawnGreen;
-
-                //btn.Enabled = false;
-                btn01.Enabled = false;
-                btn02.Enabled = false;
-                btn03.Enabled = false;
-                btn04.Enabled = false;
-                btn05.Enabled = false;
-                ////
-                //if (button1.Focus() == true)
-                //{
-                //    button1.Enabled = false;
-                //}
-                //if (button2.Focus() == true)
-                //{
-                //    button2.Enabled = false;
-                //}
-                //if (button3.Focus() == true)
-                //{
-                //    button3.Enabled = false;
-                //}
-                //if (button4.Focus() == true)
-                //{
-                //    button4.Enabled = false;
-                //}
-                //if (button5.Focus() == true)
-                //{
-                //    button5.Enabled = false;
-                //}
-                //if (button6.Focus() == true)
-                //{
-                //    button6.Enabled = false;
-                //}
-                //if (button7.Focus() == true)
-                //{
-                //    button7.Enabled = false;
-                //}
-                //if (button8.Focus() == true)
-                //{
-                //    button8.Enabled = false;
-                //}
-                //if (button9.Focus() == true)
-                //{
-                //    button9.Enabled = false;
-                //}
-                //if (button10.Focus() == true)
-                //{
-                //    button10.Enabled = false;
-                //}
-                /////
-
-                if (button1.BackColor == Color.LawnGreen)
-                {
-                    button1.Enabled = false;
-                }
-                if (button2.BackColor == Color.LawnGreen)
-                {
-                    button2.Enabled = false;
-                }
-                if (button3.BackColor == Color.LawnGreen)
-                {
-                    button3.Enabled = false;
-                }
-                if (button4.BackColor == Color.LawnGreen)
-                {
-                    button4.Enabled = false;
-                }
-                if (button5.BackColor == Color.LawnGreen)
-                {
-                    button5.Enabled = false;
-                }
-                if (button6.BackColor == Color.LawnGreen)
-                {
-                    button6.Enabled = false;
-                }
-                if (button7.BackColor == Color.LawnGreen)
-                {
-                    button7.Enabled = false;
-                }
-                if (button8.BackColor == Color.LawnGreen)
-                {
-                    button8.Enabled = false;
-                }
-                if (button9.BackColor == Color.LawnGreen)
-                {
-                    button9.Enabled = false;
-                }
-                if (button10.BackColor == Color.LawnGreen)
-                {
-                    button10.Enabled = false;
-                }
-                /// 
-                if (button1.BackColor == Color.Red)
-                {
-                    button1.Enabled = false;
-                }
-                if (button2.BackColor == Color.Red)
-                {
-                    button2.Enabled = false;
-                }
-                if (button3.BackColor == Color.Red)
-                {
-                    button3.Enabled = false;
-                }
-                if (button4.BackColor == Color.Red)
-                {
-                    button4.Enabled = false;
-                }
-                if (button5.BackColor == Color.Red)
-                {
-                    button5.Enabled = false;
-                }
-                if (button6.BackColor == Color.Red)
-                {
-                    button6.Enabled = false;
-                }
-                if (button7.BackColor == Color.Red)
-                {
-                    button7.Enabled = false;
-                }
-                if (button8.BackColor == Color.Red)
-                {
-                    button8.Enabled = false;
-                }
-                if (button9.BackColor == Color.Red)
-                {
-                    button9.Enabled = false;
-                }
-                if (button10.BackColor == Color.Red)
-                {
-                    button10.Enabled = false;
-                }
                 result = true;
                 CorrectCount++;
-                btn.Enabled = false;
                 if (CorrectCount == 9)
                 {
-                    //new Loading().Hide();
-                    //Loading.ActiveForm.Hide();
                     ShowResponse("Hörmətli " + Login.LoginedUser.Name +" "+Login.LoginedUser.Surname +"! \r\n Təbriklər, siz Yol Hərəkəti \r\n Qaydaları üzrə nəzəri \r\n  imtahandan keçdiniz", Color.Green);
-                }
-
-            }
-
-
-
+                    this.IsClose = false;
+                } 
+            } 
             else
-            {
-                foreach (Button _btn in this.grpAnswers.Controls)
+            { 
+                lblResponse1.Text = "Cavab Səhvdir";
+                lblResponse1.Left = (this.Width - lblResponse1.Width) / 2; 
+                lblResponse1.ForeColor = Color.Red;
+
+
+                btn.BackColor = Color.Red;
+                foreach (Button _btn in grpAnswers.Controls)
                 {
                     if (_btn.Text == answer)
-                    {
                         _btn.BackColor = Color.LawnGreen;
-                    }
-                }
-                this.lblResponse1.Text = "Cavab Səhvdir";
-
-                btn.Enabled = false;
-                this.lblResponse1.ForeColor = Color.Red;
-                btn.BackColor = Color.Red;
-
-                this.IncorrectQuations.Add(this.selectedQuatins[Index]);
-                btn.Enabled = false;
-                btn01.Enabled = false;
-                btn02.Enabled = false;
-                btn03.Enabled = false;
-                btn04.Enabled = false;
-                btn05.Enabled = false;
-                if (button1.BackColor == Color.LawnGreen)
-                {
-                    button1.Enabled = false;
-                }
-                if (button2.BackColor == Color.LawnGreen)
-                {
-                    button2.Enabled = false;
-                }
-                if (button3.BackColor == Color.LawnGreen)
-                {
-                    button3.Enabled = false;
-                }
-                if (button4.BackColor == Color.LawnGreen)
-                {
-                    button4.Enabled = false;
-                }
-                if (button5.BackColor == Color.LawnGreen)
-                {
-                    button5.Enabled = false;
-                }
-                if (button6.BackColor == Color.LawnGreen)
-                {
-                    button6.Enabled = false;
-                }
-                if (button7.BackColor == Color.LawnGreen)
-                {
-                    button7.Enabled = false;
-                }
-                if (button8.BackColor == Color.LawnGreen)
-                {
-                    button8.Enabled = false;
-                }
-                if (button9.BackColor == Color.LawnGreen)
-                {
-                    button9.Enabled = false;
-                }
-                if (button10.BackColor == Color.LawnGreen)
-                {
-                    button10.Enabled = false;
                 }
 
-                //if (button1.Focus() == true)
-                //{
-                //    button1.Enabled = false;
-                //}
-                //if (button2.Focus() == true)
-                //{
-                //    button2.Enabled = false;
-                //}
-                //if (button3.Focus() == true)
-                //{
-                //    button3.Enabled = false;
-                //}
-                //if (button4.Focus() == true)
-                //{
-                //    button4.Enabled = false;
-                //}
-                //if (button5.Focus() == true)
-                //{
-                //    button5.Enabled = false;
-                //}
-                //if (button6.Focus() == true)
-                //{
-                //    button6.Enabled = false;
-                //}
-                //if (button7.Focus() == true)
-                //{
-                //    button7.Enabled = false;
-                //}
-                //if (button8.Focus() == true)
-                //{
-                //    button8.Enabled = false;
-                //}
-                //if (button9.Focus() == true)
-                //{
-                //    button9.Enabled = false;
-                //}
-                //if (button10.Focus() == true)
-                //{
-                //    button10.Enabled = false;
-                //}
-                //
-                if (button1.BackColor == Color.Red)
-                {
-                    button1.Enabled = false;
-                }
-                if (button2.BackColor == Color.Red)
-                {
-                    button2.Enabled = false;
-                }
-                if (button3.BackColor == Color.Red)
-                {
-                    button3.Enabled = false;
-                }
-                if (button4.BackColor == Color.Red)
-                {
-                    button4.Enabled = false;
-                }
-                if (button5.BackColor == Color.Red)
-                {
-                    button5.Enabled = false;
-                }
-                if (button6.BackColor == Color.Red)
-                {
-                    button6.Enabled = false;
-                }
-                if (button7.BackColor == Color.Red)
-                {
-                    button7.Enabled = false;
-                }
-                if (button8.BackColor == Color.Red)
-                {
-                    button8.Enabled = false;
-                }
-                if (button9.BackColor == Color.Red)
-                {
-                    button9.Enabled = false;
-                }
-                if (button10.BackColor == Color.Red)
-                {
-                    button10.Enabled = false;
-                }
-                btn.Enabled = false;
+
+                IncorrectQuations.Add(selectedQuatins[Index]);
                 result = false;
-                checkExem();
-
+                checkExem(); 
             }
 
             foreach (Button btnQua in this.grpQuations.Controls)
@@ -498,7 +264,18 @@ namespace School.Pages
                 if ((Convert.ToInt32(btnQua.Text) - 1) == this.Index)
                 {
                     btnQua.BackColor = result ? Color.LawnGreen : Color.Red;
+                }
+            } 
+            DisableBUttons();
+        }
 
+        void DisableBUttons()
+        {
+            foreach (Control ctr in grpQuations.Controls)
+            {
+                if(ctr.BackColor == Color.Red||ctr.BackColor == Color.LawnGreen)
+                {
+                    ctr.Enabled = false;
                 }
             }
         }
@@ -518,8 +295,7 @@ namespace School.Pages
             MessageTimer.Interval = 1000;
             MessageTimer.Enabled = true;
         }
-      
-
+       
         private void checkExem()
         {
             if (this.IncorrectQuations.Count >= 2)
@@ -527,28 +303,14 @@ namespace School.Pages
                 this.Timer.Stop();
                 this.Timer.Dispose();
                 ShowResponse("Təəssüf, siz imtahandan \r\n keçmədiniz", Color.Red);
+                this.IsClose = false;
             }
         }
 
         private void cleaner()
         {
             foreach (Button btn in this.grpAnswers.Controls)
-            {
-                button1.Enabled = true;
-                button2.Enabled = true;
-                button3.Enabled = true;
-                button4.Enabled = true;
-                button5.Enabled = true;
-                button6.Enabled = true;
-                button7.Enabled = true;
-                button8.Enabled = true;
-                button9.Enabled = true;
-                button10.Enabled = true;
-                btn01.Enabled = true;
-                btn02.Enabled = true;
-                btn03.Enabled = true;
-                btn04.Enabled = true;
-                btn05.Enabled = true;
+            { 
                 btn.BackColor = Color.Black;
                 btn.Enabled = true;
             }
@@ -583,22 +345,10 @@ namespace School.Pages
                 btn04.Enabled = true;
                 btn05.Enabled = true;
                 this.Timer.Dispose();
-                // this.Close();s
-                // MessageBox.Show("Təəssüf edirik \r\n vaxt bitdiyi üçün \r\n siz imtahandan keçə bilmədiniz");
                 
                
-                //btn.BackColor = Color.Black;
-                //btn.Enabled = true;
                 this.Close();
                 MessageBox.Show("Təəssüf, vaxtınız bitti!");
-                // ShowResponse("",Color.Red);
-                // MessageBox.Show(" ");
-
-
-                //errorfor errorfor = new errorfor();
-                //errorfor.Show();
-                //this.Close();
-
             }
             if (this.Second > 0)
             {
@@ -622,68 +372,7 @@ namespace School.Pages
                 this.Close();
             }
         }
-
-        private void StuTicket_Load(object sender, EventArgs e)
-        {
-
-            // MessageBox.Show(lblResponse.Location.X.ToString(), lblResponse.Location.Y.ToString());
-
-            //this.pctTicket.Width = (this.Width / 2);
-            //this.pctTicket.Height = (this.Width / 4);
-            //this.pctTicket.Left = ((this.Width - this.pctTicket.Width) / 2);
-
-            //this.pnlAnswer.Left = ((this.Width - this.pnlAnswer.Width) / 2);
-            //this.pnlAnswer.Top = (this.pctTicket.Top + this.pctTicket.Height + 5);
-            this.pctTicket.Height = (this.Height - (this.pnlCavablar.Height + this.pnlAnswer.Height + 60 + this.menuUser.Height));
-            this.pctTicket.Left = 8;
-            this.pctTicket.Top = this.menuUser.Height + 5;
-            this.pctTicket.Width = this.Width - 30;
-
-            this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height +30);
-            this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
-            this.lblResponse1.Top = this.Height - (this.pnlCavablar.Height + 60);
-            this.pnlCavablar.Top = this.Height - (this.pnlCavablar.Height + 40);
-            this.label2.Top = this.Height - 100;
-            this.label2.Left = this.Width - 150;
-            this.lblDuration.Top = this.Height - 100;
-            this.lblDuration.Left = this.Width - 150 + label2.Width;
-            this.pnlInfo.Top = this.Height - (this.pnlInfo.Height + 40);
-            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
-            //this.pnlInfo.Top = (pnlAnswer.Top + pnlAnswer.Height);
-            int b = this.pnlCavablar.Left;
-            this.lblResponse1.Left = b + ((this.pnlCavablar.Width / 2) - 65);
-        }
-
-        private void FormResize(object sender, EventArgs e)
-        {
-            this.pctTicket.Height = (this.Height - (this.pnlCavablar.Height + this.pnlAnswer.Height + 60 + this.menuUser.Height));
-            this.pctTicket.Left = 8;
-            this.pctTicket.Top = this.menuUser.Height + 5;
-            this.pctTicket.Width = this.Width - 30;
-
-            this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height + 30);
-            this.lblResponse1.Top = this.Height - (this.pnlCavablar.Height + 65);
-            this.pnlCavablar.Top = this.Height - (this.pnlCavablar.Height + 40);
-            this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
-            this.label2.Top = this.Height - 100;
-            this.label2.Left = this.Width - 150;
-            this.lblDuration.Top = this.Height - 100;
-            this.lblDuration.Left = this.Width - 150 + label2.Width;
-            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
-            this.pnlInfo.Top = this.Height - (this.pnlInfo.Height + 40);
-            int a = this.pnlCavablar.Left;
-            this.lblResponse1.Left = a + ((this.pnlCavablar.Width / 2) - 60);
-            //this.pctTicket.Width = (this.Width / 2);
-            //this.pctTicket.Height = (this.Width / 4);
-            //this.pctTicket.Left = ((this.Width - this.pctTicket.Width) / 2);
-
-            //this.pnlAnswer.Left = ((this.Width - this.pnlAnswer.Width) / 2);
-            //this.pnlAnswer.Top = (this.pctTicket.Top + this.pctTicket.Height + 5);
-
-            //this.pnlInfo.Left = ((this.Width - this.pnlInfo.Width) / 2);
-            //this.pnlInfo.Top = (pnlAnswer.Top + pnlAnswer.Height);
-        }
-
+         
         public void SelectButton(object sender, EventArgs e)
         {
             int num = Convert.ToInt32((sender as Button).Text);
@@ -774,16 +463,28 @@ namespace School.Pages
 
         private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            this.Close();
+            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            this.IsClose = false;
+            this.Timer.Stop();
+            this.Timer.Dispose();
+            this.Hide();
             Dashboard.ThisForm.Show();
-            //Dashboard dashboard = new Dashboard();
-            //dashboard.Show();
-            //new Dashboard().ShowDialog();
         }
 
         private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            { 
+                return;
+            }
+            this.IsClose = false;
+            this.Timer.Stop();
+            this.Timer.Dispose();
             try
             {
                 this.Hide();
@@ -796,6 +497,92 @@ namespace School.Pages
             }
 
            
-        } 
+        }
+
+        private void StuTicket_Load(object sender, EventArgs e)
+        {
+            this.pctTicket.Left = 8;
+            this.pctTicket.Top = this.menuUser.Height + 5;
+            this.pctTicket.Width = this.Width - 30;
+
+            this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height + 40);
+            this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
+
+            this.label2.Top = this.Height - 100;
+            this.label2.Left = this.Width - 150;
+            this.lblDuration.Top = this.Height - 100;
+            this.lblDuration.Left = this.Width - 150 + label2.Width;
+
+            pnlInfo.Top = this.Height - (this.pnlInfo.Height + 55);
+            pnlInfo.Width = this.Width / 4;
+            grpInfo.Width = pnlInfo.Width-10;
+            cmbTicket.Left = (grpInfo.Width - cmbTicket.Width) - 10;
+            cmbTicket.Width = (grpInfo.Width / 3) + 10;
+            lblTicket.Left = cmbTicket.Left;
+
+            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
+            int b = this.pnlCavablar.Left;
+            this.lblResponse1.Left = b + ((this.pnlCavablar.Width / 2) - 65);
+
+            pnlCavablar.Top = pnlInfo.Top;
+            pnlCavablar.Left = (this.Width - pnlCavablar.Width) / 2;
+
+            this.lblResponse1.Top = (pnlCavablar.Top - lblResponse1.Height + 5);
+
+            this.pctTicket.Height = pnlAnswer.Top - 40;
+        }
+
+        private void FormResize(object sender, EventArgs e)
+        {
+            this.pctTicket.Left = 8;
+            this.pctTicket.Top = this.menuUser.Height + 5;
+            this.pctTicket.Width = this.Width - 30;
+
+            this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height + 40);
+            this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
+            this.label2.Top = this.Height - 100;
+            this.label2.Left = this.Width - 150;
+            this.lblDuration.Top = this.Height - 100;
+            this.lblDuration.Left = this.Width - 150 + label2.Width;
+            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
+
+            pnlInfo.Top = this.Height - (this.pnlInfo.Height + 55);
+            pnlInfo.Width = this.Width / 4;
+            grpInfo.Width = pnlInfo.Width - 10;
+            cmbTicket.Left = (grpInfo.Width - cmbTicket.Width) - 10;
+            cmbTicket.Width = (grpInfo.Width / 3) + 10;
+            lblTicket.Left = cmbTicket.Left;
+
+
+            int a = this.pnlCavablar.Left;
+            this.lblResponse1.Left = a + ((this.pnlCavablar.Width / 2) - 60);
+
+            pnlCavablar.Top = pnlInfo.Top;
+            pnlCavablar.Left = (this.Width - pnlCavablar.Width) / 2;
+
+            this.lblResponse1.Top = (pnlCavablar.Top - lblResponse1.Height + 5);
+
+
+            if (WindowState == FormWindowState.Maximized)
+            {
+                this.Width = 1000;
+                this.Height = 500;
+            }
+
+            lblResponse1.Left = (this.Width - lblResponse1.Width) / 2;
+
+            this.pctTicket.Height = pnlAnswer.Top - 40;
+        }
+
+        private void StuTicket_SizeChanged(object sender, EventArgs e)
+        {
+            pnlInfo.Top = this.Height - (this.pnlInfo.Height + 55);
+            pnlInfo.Width = this.Width / 4;
+            grpInfo.Width = pnlInfo.Width - 10;
+            cmbTicket.Left = (grpInfo.Width - cmbTicket.Width) - 10;
+            cmbTicket.Width = (grpInfo.Width / 3) + 10;
+            lblTicket.Left = cmbTicket.Left;
+        }
+  
     }
 }

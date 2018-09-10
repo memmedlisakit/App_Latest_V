@@ -99,7 +99,7 @@ namespace School.Pages
                     string json = new JavaScriptSerializer().Serialize(activation);
                     using (var client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://memmedlisakit-001-site1.itempurl.com/");
+                        client.BaseAddress = new Uri("http://sakit.azurewebsites.net/");
                         client.DefaultRequestHeaders.Accept.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         HttpResponseMessage response = client.GetAsync($"api/activations?code={json}&token={TOKET}").Result;

@@ -271,5 +271,19 @@ namespace School.Pages
             {
             } 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            linkSignUp.Left = (this.Width - linkSignUp.Width) - 30;
+            grpLogin.Left = (this.Width - grpLogin.Width) / 2;
+            grpLogin.Top = (this.Height - grpLogin.Height) / 2;
+        }
+
+        private void FormResize(object sender, EventArgs e)
+        {
+            linkSignUp.Left = (this.Width - linkSignUp.Width) - 30;
+            grpLogin.Left = (this.Width - grpLogin.Width) / 2;
+            grpLogin.Top = (this.Height - grpLogin.Height) / 2;
+        }
     }
 }
