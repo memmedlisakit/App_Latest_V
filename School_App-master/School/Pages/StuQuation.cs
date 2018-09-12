@@ -337,8 +337,15 @@ namespace School.Pages
             this.Close();
              Dashboard.ThisForm.Show(); 
         }
+         
 
-
+        private void PaintBorderlessGroupBox(object sender, PaintEventArgs p)
+        {
+            GroupBox box = (GroupBox)sender;
+            p.Graphics.Clear(Color.SkyBlue);
+            p.Graphics.DrawString(box.Text, box.Font, Brushes.SkyBlue, 0, 0);
+        }
+         
         // Responsive
 
         private void StuQuation_Load(object sender, EventArgs e)
@@ -377,6 +384,7 @@ namespace School.Pages
 
             //===============================For Panel Info===============================
             pnlInfo.Top = (this.Height - pnlInfo.Height - 50);
+            grpAnswers.ForeColor = Color.Transparent;
 
 
             //===============================For Panel Answers============================ 
@@ -388,20 +396,10 @@ namespace School.Pages
             grp_answers.Width = pnlAnswers.Width - 10;
             grpAnswers.Width = grp_answers.Width - 10;
             grpAnswers.Left = (grp_answers.Width - grpAnswers.Width) / 2;
-            int count = 5;
-            int number = 1;
-            foreach (Control ctr in grpAnswers.Controls)
-            {
-                ctr.Left = count;
-                ctr.Text = (number++).ToString();
-                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
-                count += grpAnswers.Width / 5;
-                ctr.Width = grpAnswers.Width / 5 - 8;
-                ctr.Height = ctr.Width - 5;
-            }
+            AnswerResize();
             foreach (Control ctr in grp_answers.Controls)
             {
-                if(ctr is Button)
+                if (ctr is Button)
                 {
                     ctr.Width = grp_answers.Width / 3 - 3;
                 }
@@ -418,6 +416,22 @@ namespace School.Pages
             pnlCategory.Top = pnlAnswers.Top - 4;
             pnlCategory.Height = pnlInfo.Height;
             pnlCategory.Left = (this.Width - pnlCategory.Width - 20);
+        }
+
+        private void AnswerResize()
+        {
+            int count = 10;
+            int number = 1;
+            foreach (Control ctr in grpAnswers.Controls)
+            {
+                ctr.Left = count;
+                ctr.Text = (number++).ToString();
+                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
+                count += grpAnswers.Width / 5;
+                int width = (grpAnswers.Width / 5) - 20;
+                ctr.Width = width;
+                //ctr.Height = ctr.Width - 5;
+            }
         }
 
         private void formResize(object sender, EventArgs e)
@@ -437,15 +451,7 @@ namespace School.Pages
             pnlAnswers.Left = (this.Width / 2) - (pnlAnswers.Width / 2) + 10;
             grp_answers.Width = pnlAnswers.Width - 10;
             grpAnswers.Width = grp_answers.Width - 12;
-            int count = 5;
-            foreach (Control ctr in grpAnswers.Controls)
-            {
-                ctr.Left = count;
-                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
-                count += grpAnswers.Width / 5;
-                ctr.Width = grpAnswers.Width / 5 - 8;
-                ctr.Height = ctr.Width - 5;
-            }
+            AnswerResize();
             foreach (Control ctr in grp_answers.Controls)
             {
                 if (ctr is Button)
@@ -478,16 +484,7 @@ namespace School.Pages
         {
             int left = (pnlInfo.Left + pnlInfo.Width);
             pnlAnswers.Left = (((pnlCategory.Left - left) - pnlAnswers.Width) / 2) + left + 5;
-            int count = 5;
-            foreach (Control ctr in grpAnswers.Controls)
-            {
-                ctr.Left = count;
-                ctr.Top = ((grpAnswers.Height - ctr.Height) / 2) + 3;
-                count += grpAnswers.Width / 5;
-                ctr.Width = grpAnswers.Width / 5 - 8;
-                ctr.Height = ctr.Width - 5;
-            }
-
+            AnswerResize();
         } 
     }
 }

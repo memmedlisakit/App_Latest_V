@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StuQuation));
-            this.grpAnswers = new System.Windows.Forms.GroupBox();
             this.btn05 = new System.Windows.Forms.Button();
+            this.btn01 = new System.Windows.Forms.Button();
             this.btn04 = new System.Windows.Forms.Button();
             this.btn02 = new System.Windows.Forms.Button();
             this.btn03 = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.pnlAnswers = new System.Windows.Forms.Panel();
             this.grp_answers = new System.Windows.Forms.GroupBox();
             this.btnPrev = new System.Windows.Forms.Button();
+            this.grpAnswers = new System.Windows.Forms.GroupBox();
             this.pnlInfo = new System.Windows.Forms.Panel();
             this.ticketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser = new System.Windows.Forms.MenuStrip();
@@ -63,32 +64,16 @@
             this.pnlCategory = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pctQuation = new System.Windows.Forms.PictureBox();
-            this.btn01 = new System.Windows.Forms.Button();
-            this.grpAnswers.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlAnswers.SuspendLayout();
             this.grp_answers.SuspendLayout();
+            this.grpAnswers.SuspendLayout();
             this.pnlInfo.SuspendLayout();
             this.menuUser.SuspendLayout();
             this.pnlCategory.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctQuation)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grpAnswers
-            // 
-            this.grpAnswers.Controls.Add(this.btn05);
-            this.grpAnswers.Controls.Add(this.btn01);
-            this.grpAnswers.Controls.Add(this.btn04);
-            this.grpAnswers.Controls.Add(this.btn02);
-            this.grpAnswers.Controls.Add(this.btn03);
-            this.grpAnswers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAnswers.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.grpAnswers.Location = new System.Drawing.Point(5, 67);
-            this.grpAnswers.Name = "grpAnswers";
-            this.grpAnswers.Size = new System.Drawing.Size(394, 72);
-            this.grpAnswers.TabIndex = 54;
-            this.grpAnswers.TabStop = false;
             // 
             // btn05
             // 
@@ -100,6 +85,17 @@
             this.btn05.TabIndex = 50;
             this.btn05.UseVisualStyleBackColor = true;
             this.btn05.Click += new System.EventHandler(this.AnswerClick);
+            // 
+            // btn01
+            // 
+            this.btn01.Font = new System.Drawing.Font("Microsoft JhengHei Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn01.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btn01.Location = new System.Drawing.Point(6, 13);
+            this.btn01.Name = "btn01";
+            this.btn01.Size = new System.Drawing.Size(54, 51);
+            this.btn01.TabIndex = 46;
+            this.btn01.UseVisualStyleBackColor = true;
+            this.btn01.Click += new System.EventHandler(this.AnswerClick);
             // 
             // btn04
             // 
@@ -397,6 +393,22 @@
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
+            // grpAnswers
+            // 
+            this.grpAnswers.Controls.Add(this.btn05);
+            this.grpAnswers.Controls.Add(this.btn01);
+            this.grpAnswers.Controls.Add(this.btn04);
+            this.grpAnswers.Controls.Add(this.btn02);
+            this.grpAnswers.Controls.Add(this.btn03);
+            this.grpAnswers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAnswers.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.grpAnswers.Location = new System.Drawing.Point(5, 67);
+            this.grpAnswers.Name = "grpAnswers";
+            this.grpAnswers.Size = new System.Drawing.Size(394, 72);
+            this.grpAnswers.TabIndex = 54;
+            this.grpAnswers.TabStop = false;
+            this.grpAnswers.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintBorderlessGroupBox);
+            // 
             // pnlInfo
             // 
             this.pnlInfo.Controls.Add(this.groupBox1);
@@ -461,17 +473,6 @@
             this.pctQuation.TabIndex = 69;
             this.pctQuation.TabStop = false;
             // 
-            // btn01
-            // 
-            this.btn01.Font = new System.Drawing.Font("Microsoft JhengHei Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn01.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btn01.Location = new System.Drawing.Point(6, 13);
-            this.btn01.Name = "btn01";
-            this.btn01.Size = new System.Drawing.Size(54, 51);
-            this.btn01.TabIndex = 46;
-            this.btn01.UseVisualStyleBackColor = true;
-            this.btn01.Click += new System.EventHandler(this.AnswerClick);
-            // 
             // StuQuation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,12 +495,12 @@
             this.Load += new System.EventHandler(this.StuQuation_Load);
             this.SizeChanged += new System.EventHandler(this.StuQuation_SizeChanged);
             this.Resize += new System.EventHandler(this.formResize);
-            this.grpAnswers.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnlAnswers.ResumeLayout(false);
             this.grp_answers.ResumeLayout(false);
             this.grp_answers.PerformLayout();
+            this.grpAnswers.ResumeLayout(false);
             this.pnlInfo.ResumeLayout(false);
             this.menuUser.ResumeLayout(false);
             this.menuUser.PerformLayout();
@@ -513,7 +514,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox grpAnswers;
         private System.Windows.Forms.Button btn05;
         private System.Windows.Forms.Button btn04;
         private System.Windows.Forms.Button btn02;
@@ -548,5 +548,6 @@
         private System.Windows.Forms.GroupBox grp_answers;
         private System.Windows.Forms.PictureBox pctQuation;
         private System.Windows.Forms.Button btn01;
+        private System.Windows.Forms.GroupBox grpAnswers;
     }
 }
