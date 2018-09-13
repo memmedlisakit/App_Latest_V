@@ -48,14 +48,17 @@ namespace School.Pages
          
         private void Closing(object sender, FormClosingEventArgs e)
         {
-            if (IsClose)
+            if(IncorrectQuations.Count > 0 || CorrectCount > 0)
             {
-                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                if (IsClose)
                 {
-                    SendKeys.Send("{esc}");
-                    e.Cancel = true;
-                    return;
+                    DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        SendKeys.Send("{esc}");
+                        e.Cancel = true;
+                        return;
+                    }
                 }
             }
 
@@ -242,13 +245,16 @@ namespace School.Pages
      
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CheckCombo && SelectedText != cmbCategory.Text)
+            if (IncorrectQuations.Count > 0 || CorrectCount > 0)
             {
-                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                if (CheckCombo && SelectedText != cmbCategory.Text)
                 {
-                    cmbCategory.Text = SelectedText;
-                    return;
+                    DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        cmbCategory.Text = SelectedText;
+                        return;
+                    }
                 }
             }
 
@@ -308,10 +314,13 @@ namespace School.Pages
 
         private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            if (IncorrectQuations.Count > 0 || CorrectCount > 0)
             {
-                return;
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
             }
             this.IsClose = false;
             try
@@ -328,10 +337,13 @@ namespace School.Pages
 
         private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            if (IncorrectQuations.Count > 0 || CorrectCount > 0)
             {
-                return;
+                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
             }
             this.IsClose = false;
             this.Close();

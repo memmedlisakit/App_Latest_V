@@ -37,7 +37,6 @@
             this.cmbTicket = new System.Windows.Forms.ComboBox();
             this.lblTicket = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblResponse = new System.Windows.Forms.Label();
             this.grpAnswers = new System.Windows.Forms.GroupBox();
             this.btn05 = new System.Windows.Forms.Button();
@@ -159,24 +158,13 @@
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
-            this.lblDuration.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft JhengHei Light", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblDuration.Location = new System.Drawing.Point(1313, 722);
+            this.lblDuration.Location = new System.Drawing.Point(1097, 665);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(45, 18);
+            this.lblDuration.Size = new System.Drawing.Size(81, 34);
             this.lblDuration.TabIndex = 45;
             this.lblDuration.Text = "15:00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(1239, 722);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 18);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Müddət:";
             // 
             // lblResponse
             // 
@@ -517,7 +505,6 @@
             this.Controls.Add(this.pnlInfo);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.pnlAnswer);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pctTicket);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(817, 500);
@@ -573,7 +560,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label lblDuration;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlAnswer;
         private System.Windows.Forms.Panel pnlInfo;
         private System.Windows.Forms.MenuStrip menuUser;

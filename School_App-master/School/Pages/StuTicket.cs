@@ -508,10 +508,8 @@ namespace School.Pages
             this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height + 40);
             this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
 
-            this.label2.Top = this.Height - 100;
-            this.label2.Left = this.Width - 150;
-            this.lblDuration.Top = this.Height - 100;
-            this.lblDuration.Left = this.Width - 150 + label2.Width;
+            this.lblDuration.Top = this.Height - 120;
+            this.lblDuration.Left = this.Width - 250;
 
             pnlInfo.Top = this.Height - (this.pnlInfo.Height + 55);
             pnlInfo.Width = this.Width / 4;
@@ -520,7 +518,7 @@ namespace School.Pages
             cmbTicket.Width = (grpInfo.Width / 3) + 10;
             lblTicket.Left = cmbTicket.Left;
 
-            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
+            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.lblDuration.Width + 10)) / 2 + 40;
             int b = this.pnlCavablar.Left;
             this.lblResponse1.Left = b + ((this.pnlCavablar.Width / 2) - 65);
 
@@ -540,11 +538,10 @@ namespace School.Pages
 
             this.pnlAnswer.Top = this.Height - (this.pnlAnswer.Height + this.pnlCavablar.Height + this.lblResponse1.Height + 40);
             this.pnlAnswer.Left = (this.Width - this.pnlAnswer.Width) / 2;
-            this.label2.Top = this.Height - 100;
-            this.label2.Left = this.Width - 150;
-            this.lblDuration.Top = this.Height - 100;
-            this.lblDuration.Left = this.Width - 150 + label2.Width;
-            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.label2.Width + this.lblDuration.Width + 10)) / 2 + 40;
+
+            this.lblDuration.Top = this.Height - 120;
+            this.lblDuration.Left = this.Width - 250;
+            this.pnlCavablar.Left = (this.Width - (this.pnlInfo.Width + this.lblDuration.Width + 10)) / 2 + 40;
 
             pnlInfo.Top = this.Height - (this.pnlInfo.Height + 55);
             pnlInfo.Width = this.Width / 4;
