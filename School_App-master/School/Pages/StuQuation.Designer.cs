@@ -271,12 +271,12 @@
             // 
             this.lblQuationCount.AutoSize = true;
             this.lblQuationCount.Font = new System.Drawing.Font("Microsoft JhengHei Light", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuationCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblQuationCount.ForeColor = System.Drawing.Color.Red;
             this.lblQuationCount.Location = new System.Drawing.Point(77, 108);
             this.lblQuationCount.Name = "lblQuationCount";
-            this.lblQuationCount.Size = new System.Drawing.Size(27, 29);
+            this.lblQuationCount.Size = new System.Drawing.Size(51, 29);
             this.lblQuationCount.TabIndex = 43;
-            this.lblQuationCount.Text = "0";
+            this.lblQuationCount.Text = "123";
             // 
             // label4
             // 
