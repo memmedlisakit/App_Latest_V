@@ -37,38 +37,14 @@ namespace School.Pages
         {
             try
             {
-                this.Hide();
-                //Login lgn = new Login();
-                //lgn.Hide();
-                //Dashboard dash = new Dashboard();
-                //dash.Hide();
+                this.Hide(); 
                 new StuQuation().Show();
             }
             catch (Exception)
-            {
-
-
-                //this.Hide();
-                //Login lgn = new Login();
-                //lgn.Hide();
-                //Dashboard dash = new Dashboard();
-                //dash.Hide();
-                //new Dashboard().Show();
-                //ShowResponse1("Bilet əlavə olunmayıb", Color.Red);
+            { 
                 this.Show();
-                MessageBox.Show("Sual əlavə olunmayıb", "Sualinfo");
-
-
-
-            }
-            //this.Hide();
-            ////Login lgn = new Login();
-            ////lgn.Hide();
-            ////Dashboard dash = new Dashboard();
-            ////dash.Hide();
-            //new StuQuation().ShowDialog();
-
-
+                MessageBox.Show("Sual əlavə olunmayıb", "Sualinfo"); 
+            } 
         }
 
 
@@ -96,39 +72,9 @@ namespace School.Pages
             MessageTimer.Enabled = true;
         }
         private void TicketClick(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                //Login lgn = new Login();
-                //lgn.Hide();
-                //Dashboard dash = new Dashboard();
-                //dash.Hide();
+        { 
+                this.Hide(); 
                 new StuTicket().Show();
-            }
-            catch (Exception)
-            {
-
-
-                //this.Hide();
-                //Login lgn = new Login();
-                //lgn.Hide();
-                //Dashboard dash = new Dashboard();
-                //dash.Hide();
-                //new Dashboard().Show();
-                //ShowResponse1("Bilet əlavə olunmayıb", Color.Red);
-                this.Show();
-                MessageBox.Show("Bilet əlavə olunmayıb","Biletinfo");
-                
-
-
-            }
-          
-            //if ()
-            //{
-
-            //}
-
         }
 
         private void UpdateProfile(object sender, EventArgs e)

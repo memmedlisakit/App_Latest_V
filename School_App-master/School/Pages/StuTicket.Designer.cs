@@ -488,9 +488,8 @@
             this.lblResponse1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResponse1.Location = new System.Drawing.Point(175, 580);
             this.lblResponse1.Name = "lblResponse1";
-            this.lblResponse1.Size = new System.Drawing.Size(19, 22);
+            this.lblResponse1.Size = new System.Drawing.Size(0, 22);
             this.lblResponse1.TabIndex = 70;
-            this.lblResponse1.Text = "c";
             // 
             // StuTicket
             // 

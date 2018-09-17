@@ -163,17 +163,24 @@ namespace School.Pages
                 };
                 cmbTicket.Items.Add(itm);
             }
+            if (cmbTicket.Items.Count > 0) 
             cmbTicket.SelectedIndex = 0;
         }
 
 
         private void setQuation()
         {
-            using (FileStream s = new FileStream(Extentions.GetPath() + "\\Quations_Images\\" + this.selectedQuatins[Index].Image, FileMode.Open))
+            try
             {
-                this.pctTicket.Image = Image.FromStream(s);
+                using (FileStream s = new FileStream(Extentions.GetPath() + "\\Quations_Images\\" + this.selectedQuatins[Index].Image, FileMode.Open))
+                {
+                    this.pctTicket.Image = Image.FromStream(s);
+                }
+                this.cleaner();
             }
-            this.cleaner();
+            catch (Exception)
+            {  
+            }
         }
 
         private void cmbTicket_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,7 +229,16 @@ namespace School.Pages
             }
             bool result;
             Button btn = sender as Button;
-            string answer = this.selectedQuatins[Index].Answer;
+            string answer="";
+            try
+            {
+                answer = this.selectedQuatins[Index].Answer;
+
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
             if (btn.Text == answer)
             { 
@@ -491,8 +507,7 @@ namespace School.Pages
                 new StuQuation().Show();
             }
             catch (Exception)
-            {
-
+            { 
                 MessageBox.Show("Sual əlavə olunmuyub");
             }
 

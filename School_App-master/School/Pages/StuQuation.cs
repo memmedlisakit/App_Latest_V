@@ -120,13 +120,26 @@ namespace School.Pages
 
         void fillCmbCategory()
         {
-            this.cmbCategory.Items.Clear(); 
-            foreach (Category cat in this.Categories.OrderBy(s=>s.Name))
+            this.cmbCategory.Items.Clear();
+
+            Dictionary<int, Category> categories = new Dictionary<int, Category>();
+
+
+            foreach (Category cat in Categories)
+            {
+                int number;
+                int.TryParse(cat.Name.Split('.').ToArray()[0], out number);
+                categories.Add(number, cat);
+            }
+
+            
+
+            foreach (KeyValuePair<int, Category> cat in categories.OrderBy(c => c.Key))
             {
                 ComboboxItem item = new ComboboxItem
                 {
-                    Text = cat.Name,
-                    Value = cat.Id
+                    Text = cat.Value.Name,
+                    Value = cat.Value.Id
                 };
                 this.cmbCategory.Items.Add(item);
             } 
@@ -322,17 +335,9 @@ namespace School.Pages
                     return;
                 }
             }
-            this.IsClose = false;
-            try
-            {
-                this.Hide();
-                new StuTicket().Show();
-            }
-            catch (Exception)
-            {
-               
-                MessageBox.Show("Bilet əlavə olunmuyub");
-            } 
+            this.IsClose = false; 
+            this.Hide();
+            new StuTicket().Show(); 
         } 
 
         private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)

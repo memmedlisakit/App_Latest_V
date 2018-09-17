@@ -184,7 +184,7 @@
             this.cmbIncorrectQuations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIncorrectQuations.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbIncorrectQuations.FormattingEnabled = true;
-            this.cmbIncorrectQuations.Location = new System.Drawing.Point(123, 103);
+            this.cmbIncorrectQuations.Location = new System.Drawing.Point(138, 104);
             this.cmbIncorrectQuations.Name = "cmbIncorrectQuations";
             this.cmbIncorrectQuations.Size = new System.Drawing.Size(111, 33);
             this.cmbIncorrectQuations.TabIndex = 63;
@@ -195,7 +195,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label7.Location = new System.Drawing.Point(120, 82);
+            this.label7.Location = new System.Drawing.Point(135, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 18);
             this.label7.TabIndex = 62;
@@ -219,7 +219,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(241, 146);
+            this.groupBox1.Size = new System.Drawing.Size(255, 146);
             this.groupBox1.TabIndex = 61;
             this.groupBox1.TabStop = false;
             // 
@@ -270,11 +270,11 @@
             // lblQuationCount
             // 
             this.lblQuationCount.AutoSize = true;
-            this.lblQuationCount.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuationCount.Font = new System.Drawing.Font("Microsoft JhengHei Light", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuationCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblQuationCount.Location = new System.Drawing.Point(88, 114);
+            this.lblQuationCount.Location = new System.Drawing.Point(77, 108);
             this.lblQuationCount.Name = "lblQuationCount";
-            this.lblQuationCount.Size = new System.Drawing.Size(17, 18);
+            this.lblQuationCount.Size = new System.Drawing.Size(27, 29);
             this.lblQuationCount.TabIndex = 43;
             this.lblQuationCount.Text = "0";
             // 
@@ -283,7 +283,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(120, 24);
+            this.label4.Location = new System.Drawing.Point(135, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 18);
             this.label4.TabIndex = 38;
@@ -294,7 +294,7 @@
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurname.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSurname.Location = new System.Drawing.Point(173, 24);
+            this.lblSurname.Location = new System.Drawing.Point(188, 25);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(45, 18);
             this.lblSurname.TabIndex = 39;
@@ -337,11 +337,11 @@
             // cmbCategory
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(14, 48);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(230, 33);
+            this.cmbCategory.Size = new System.Drawing.Size(230, 28);
             this.cmbCategory.TabIndex = 60;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -414,7 +414,7 @@
             this.pnlInfo.Controls.Add(this.groupBox1);
             this.pnlInfo.Location = new System.Drawing.Point(8, 552);
             this.pnlInfo.Name = "pnlInfo";
-            this.pnlInfo.Size = new System.Drawing.Size(248, 152);
+            this.pnlInfo.Size = new System.Drawing.Size(272, 152);
             this.pnlInfo.TabIndex = 66;
             // 
             // ticketToolStripMenuItem
