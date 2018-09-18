@@ -326,11 +326,11 @@
             // 
             this.rchCategory.BackColor = System.Drawing.Color.SkyBlue;
             this.rchCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchCategory.Location = new System.Drawing.Point(13, 87);
+            this.rchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rchCategory.Location = new System.Drawing.Point(4, 46);
             this.rchCategory.Name = "rchCategory";
             this.rchCategory.ReadOnly = true;
-            this.rchCategory.Size = new System.Drawing.Size(231, 50);
+            this.rchCategory.Size = new System.Drawing.Size(189, 93);
             this.rchCategory.TabIndex = 65;
             this.rchCategory.Text = "";
             // 
@@ -339,9 +339,9 @@
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(14, 48);
+            this.cmbCategory.Location = new System.Drawing.Point(76, 15);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(230, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(117, 28);
             this.cmbCategory.TabIndex = 60;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -350,7 +350,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft JhengHei Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(10, 25);
+            this.label9.Location = new System.Drawing.Point(2, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 59;
@@ -448,7 +448,7 @@
             this.pnlCategory.Controls.Add(this.groupBox2);
             this.pnlCategory.Location = new System.Drawing.Point(982, 555);
             this.pnlCategory.Name = "pnlCategory";
-            this.pnlCategory.Size = new System.Drawing.Size(273, 156);
+            this.pnlCategory.Size = new System.Drawing.Size(215, 156);
             this.pnlCategory.TabIndex = 68;
             // 
             // groupBox2
@@ -460,7 +460,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox2.Location = new System.Drawing.Point(8, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 145);
+            this.groupBox2.Size = new System.Drawing.Size(199, 145);
             this.groupBox2.TabIndex = 69;
             this.groupBox2.TabStop = false;
             // 
@@ -479,7 +479,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1028, 749);
+            this.ClientSize = new System.Drawing.Size(1028, 595);
             this.Controls.Add(this.pctQuation);
             this.Controls.Add(this.pnlAnswers);
             this.Controls.Add(this.pnlCategory);
