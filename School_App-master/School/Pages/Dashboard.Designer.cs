@@ -219,7 +219,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctMain.Location = new System.Drawing.Point(884, 394);
             this.pctMain.Name = "pctMain";
-            this.pctMain.Size = new System.Drawing.Size(2722, 558);
+            this.pctMain.Size = new System.Drawing.Size(3906, 524);
             this.pctMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctMain.TabIndex = 1;
             this.pctMain.TabStop = false;

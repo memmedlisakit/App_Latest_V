@@ -166,21 +166,14 @@ namespace School.Pages
             if (cmbTicket.Items.Count > 0) 
             cmbTicket.SelectedIndex = 0;
         }
-
-
+          
         private void setQuation()
-        {
-            try
-            {
+        { 
                 using (FileStream s = new FileStream(Extentions.GetPath() + "\\Quations_Images\\" + this.selectedQuatins[Index].Image, FileMode.Open))
                 {
                     this.pctTicket.Image = Image.FromStream(s);
                 }
-                this.cleaner();
-            }
-            catch (Exception)
-            {  
-            }
+                this.cleaner(); 
         }
 
         private void cmbTicket_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,17 +222,9 @@ namespace School.Pages
             }
             bool result;
             Button btn = sender as Button;
-            string answer="";
-            try
-            {
-                answer = this.selectedQuatins[Index].Answer;
-
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
+            
+            string answer = this.selectedQuatins[Index].Answer;
+             
             if (btn.Text == answer)
             { 
                 lblResponse1.Text = "Cavab Doğrudur";
@@ -543,6 +528,14 @@ namespace School.Pages
             this.lblResponse1.Top = (pnlCavablar.Top - lblResponse1.Height + 5);
 
             this.pctTicket.Height = pnlAnswer.Top - 40;
+
+            if (Tickets.Count <= 0)
+            {
+                MessageBox.Show("Hal hazirda bilet yoxdur");
+                this.IsClose = false;
+                this.Close();
+                Dashboard.ThisForm.Show();
+            }
         }
 
         private void FormResize(object sender, EventArgs e)

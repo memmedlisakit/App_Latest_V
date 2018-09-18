@@ -327,17 +327,18 @@ namespace School.Pages
 
         private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (IncorrectQuations.Count > 0 || CorrectCount > 0)
-            {
-                DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+           
+                if (IncorrectQuations.Count > 0 || CorrectCount > 0)
                 {
-                    return;
+                    DialogResult result = MessageBox.Show("Programdan çıxmağa əminsinizmi ?", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
                 }
-            }
-            this.IsClose = false; 
-            this.Hide();
-            new StuTicket().Show(); 
+                this.IsClose = false;
+                this.Hide();
+                new StuTicket().Show(); 
         } 
 
         private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)

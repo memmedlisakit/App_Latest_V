@@ -73,8 +73,9 @@ namespace School.Pages
         }
         private void TicketClick(object sender, EventArgs e)
         { 
-                this.Hide(); 
+                this.Hide();
                 new StuTicket().Show();
+             
         }
 
         private void UpdateProfile(object sender, EventArgs e)
