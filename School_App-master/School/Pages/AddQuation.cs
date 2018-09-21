@@ -8,7 +8,8 @@ using School.Settings;
 using System.Collections.Generic;
 using System.Net;
 using School.Models;
-using System.Linq;
+using System.Linq; 
+using System.Timers;
 
 namespace School.Pages
 {
@@ -16,7 +17,9 @@ namespace School.Pages
     {
         static SQLiteConnection con = new SQLiteConnection(Login.connection);
         OpenFileDialog ofd = new OpenFileDialog();
-        
+
+
+
         List<string> images = new List<string>();
         List<string> answers = new List<string>();
         string imageFolderPath = "";
@@ -188,7 +191,7 @@ namespace School.Pages
                 }
             }
             this.lblMulti.ForeColor = Color.LimeGreen;
-            this.lblMulti.Text = "Uğurla tamamlandi";
+            MessageBox.Show("Uğurla tamamlandi");
             this.cleaner();
             images.Clear();
             answers.Clear();
