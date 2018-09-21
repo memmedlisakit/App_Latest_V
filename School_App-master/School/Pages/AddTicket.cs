@@ -41,6 +41,22 @@ namespace School.Pages
 
         void setScrollImages()
         {
+
+
+            Dictionary<int, Category> categories = new Dictionary<int, Category>();
+
+
+            foreach (Category cat in this.categories)
+            {
+                int number;
+                int.TryParse(cat.Name.Split('.').ToArray()[0], out number);
+                if (!categories.ContainsKey(number))  categories.Add(number, cat);
+            }
+
+
+
+            
+
             foreach (var grp in this.grpMain.Controls)
             {
                 if (grp is GroupBox)
@@ -62,14 +78,16 @@ namespace School.Pages
                             if (cmb.Name.Contains("Category"))
                             {
                                 cmb.Items.Clear();
-                                foreach (Category cat in this.categories.OrderBy(s => s.Name))
+                                foreach (KeyValuePair<int, Category> cat in categories.OrderBy(c => c.Key))
                                 {
-                                    ComboboxItem item = new ComboboxItem();
-                                    item.Text = cat.Name;
-                                    item.Value = cat.Id;
+                                    ComboboxItem item = new ComboboxItem
+                                    {
+                                        Text = cat.Value.Name,
+                                        Value = cat.Value.Id
+                                    };
                                     cmb.Items.Add(item);
                                     cmb.TextChanged += Cmb_SelectedIndexChanged;
-                                }
+                                } 
                             }
                         }
                     }

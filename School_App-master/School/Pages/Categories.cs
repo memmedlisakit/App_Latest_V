@@ -4,12 +4,17 @@ using System.Data;
 using System.Data.SQLite;
 using School.Settings;
 using System.Collections.Generic;
+using School.Models;
+using System.Linq;
 
 namespace School.Pages
 {
     public partial class Categories : Form
     {
         SQLiteConnection con = new SQLiteConnection(Login.connection);
+
+     
+
         int id;
         public Categories()
         {
@@ -55,17 +60,37 @@ namespace School.Pages
 
         void fillData()
         {
-            this.dgvData.Rows.Clear();
-            int i = 0;
+            List<Category> Main_Categories = new List<Category>();
+
             foreach (DataRow row in this.select(null).Rows)
             {
-                this.dgvData.Rows.Add();
-                this.dgvData.Rows[i].Cells[0].Value = row["id"];
-                this.dgvData.Rows[i].Cells[1].Value = row["name"];
-                i++;
+                Main_Categories.Add(new Category()
+                {
+                    Id = Convert.ToInt32(row["id"]),
+                    Name = row["name"].ToString()
+                });
             }
-            this.cleaner();
-        }
+
+            Dictionary<int, Category> categories = new Dictionary<int, Category>();
+             
+            foreach (Category cat in Main_Categories)
+            {
+                int number;
+                int.TryParse(cat.Name.Split('.').ToArray()[0], out number);
+                if(!categories.ContainsKey(number)) categories.Add(number, cat); 
+            }
+
+            this.dgvData.Rows.Clear();
+            int a = 0;
+            foreach (KeyValuePair<int, Category> cat in categories.OrderBy(c => c.Key))
+            {
+                this.dgvData.Rows.Add();
+                this.dgvData.Rows[a].Cells[0].Value = cat.Value.Id;
+                this.dgvData.Rows[a].Cells[1].Value = cat.Value.Name;
+                a++;
+            }
+            this.cleaner();  
+        } 
 
         DataTable select(int? id)
         {

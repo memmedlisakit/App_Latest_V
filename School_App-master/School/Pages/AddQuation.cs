@@ -7,6 +7,8 @@ using System.IO;
 using School.Settings;
 using System.Collections.Generic;
 using System.Net;
+using School.Models;
+using System.Linq;
 
 namespace School.Pages
 {
@@ -14,7 +16,7 @@ namespace School.Pages
     {
         static SQLiteConnection con = new SQLiteConnection(Login.connection);
         OpenFileDialog ofd = new OpenFileDialog();
-        FolderBrowserDialog fbd = new FolderBrowserDialog();
+        
         List<string> images = new List<string>();
         List<string> answers = new List<string>();
         string imageFolderPath = "";
@@ -39,10 +41,41 @@ namespace School.Pages
             SQLiteCommand com = new SQLiteCommand(sql, con);
             da.SelectCommand = com;
             da.Fill(dt);
+             
+
+            List<Category> Categories = new List<Category>();
+
             foreach (DataRow row in dt.Rows)
             {
-                combo.Items.Add(row["name"]);
+                Categories.Add(new Category()
+                {
+                    Id = Convert.ToInt32(row["id"]),
+                    Name = row["name"].ToString()
+                });
             }
+
+
+            Dictionary<int, Category> categories = new Dictionary<int, Category>();
+
+
+            foreach (Category cat in Categories)
+            {
+                int number;
+                int.TryParse(cat.Name.Split('.').ToArray()[0], out number);
+                if (!categories.ContainsKey(number))  categories.Add(number, cat);
+            }
+
+
+
+            foreach (KeyValuePair<int, Category> cat in categories.OrderBy(c => c.Key))
+            {
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = cat.Value.Name,
+                    Value = cat.Value.Id
+                };
+                combo.Items.Add(item);
+            } 
         }
 
         private bool checkingFiled()
@@ -123,6 +156,8 @@ namespace School.Pages
         {
             if (!this.checkingAllFiled())
             {
+                images.Clear();
+                answers.Clear();
                 return;
             }
             int id = getCatId(this.cmbAllCategory.Text);
@@ -155,10 +190,13 @@ namespace School.Pages
             this.lblMulti.ForeColor = Color.LimeGreen;
             this.lblMulti.Text = "Uğurla tamamlandi";
             this.cleaner();
+            images.Clear();
+            answers.Clear();
         }
 
         private void btnAllImages_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 string[] files = Directory.GetFiles(fbd.SelectedPath);
@@ -207,6 +245,7 @@ namespace School.Pages
                     this.lblAllAnswers.Text = "Fayl tipi .txt olmalidir ";
                 }
             }
+            ofd = new OpenFileDialog();
 
         }
 
