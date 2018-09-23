@@ -91,8 +91,8 @@ namespace School.Pages
             {
                 this.ckbFemale.Checked = true;
             }
-            this.grpStuProfile.Visible = !this.grpStuProfile.Visible;
-            this.pctMain.Visible = !this.grpStuProfile.Visible;
+            this.grpStuProfile.Visible = true;
+            this.pctMain.Visible = false;
             this.pnlAbout.Visible = false;
         }
 
@@ -144,6 +144,13 @@ namespace School.Pages
         {
             //this.grpInfo.Width = this.grpInfo.Width + ((this.Width - this.grpInfo.Width) / 2);
             this.pctMain.Width = this.pctMain.Width + ((this.Width - this.pctMain.Width) / 2);
+        }
+
+        private void əsasSəhifəToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.grpStuProfile.Visible = false;
+            this.pctMain.Visible = true;
+            this.pnlAbout.Visible = false;
         }
     }
 }

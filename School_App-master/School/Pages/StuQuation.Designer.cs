@@ -46,7 +46,6 @@
             this.lblCorretCount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblQuationCount = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -211,7 +210,6 @@
             this.groupBox1.Controls.Add(this.lblCorretCount);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblQuationCount);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblSurname);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblName);
@@ -272,33 +270,22 @@
             this.lblQuationCount.AutoSize = true;
             this.lblQuationCount.Font = new System.Drawing.Font("Microsoft JhengHei Light", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuationCount.ForeColor = System.Drawing.Color.Red;
-            this.lblQuationCount.Location = new System.Drawing.Point(77, 108);
+            this.lblQuationCount.Location = new System.Drawing.Point(83, 108);
             this.lblQuationCount.Name = "lblQuationCount";
             this.lblQuationCount.Size = new System.Drawing.Size(51, 29);
             this.lblQuationCount.TabIndex = 43;
             this.lblQuationCount.Text = "123";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(135, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 18);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Soyad:";
             // 
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurname.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSurname.Location = new System.Drawing.Point(188, 25);
+            this.lblSurname.Location = new System.Drawing.Point(162, 24);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(45, 18);
+            this.lblSurname.Size = new System.Drawing.Size(79, 18);
             this.lblSurname.TabIndex = 39;
-            this.lblSurname.Text = "gfhgf";
+            this.lblSurname.Text = "Novruzov";
             // 
             // label1
             // 
@@ -307,20 +294,20 @@
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label1.Location = new System.Drawing.Point(6, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 18);
+            this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 36;
-            this.label1.Text = "Ad:";
+            this.label1.Text = "Ad, soyad:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft JhengHei Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblName.Location = new System.Drawing.Point(37, 24);
+            this.lblName.Location = new System.Drawing.Point(95, 24);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(40, 18);
+            this.lblName.Size = new System.Drawing.Size(61, 18);
             this.lblName.TabIndex = 37;
-            this.lblName.Text = "hgfd";
+            this.lblName.Text = "Mansur";
             // 
             // rchCategory
             // 
@@ -337,11 +324,11 @@
             // cmbCategory
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(76, 15);
+            this.cmbCategory.Location = new System.Drawing.Point(64, 15);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(117, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(129, 28);
             this.cmbCategory.TabIndex = 60;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -350,7 +337,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft JhengHei Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(2, 23);
+            this.label9.Location = new System.Drawing.Point(1, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 59;
@@ -528,7 +515,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblQuationCount;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblName;

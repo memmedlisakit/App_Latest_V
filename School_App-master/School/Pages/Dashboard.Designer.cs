@@ -47,6 +47,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlAbout = new System.Windows.Forms.PictureBox();
             this.pctMain = new System.Windows.Forms.PictureBox();
+            this.əsasSəhifəToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             this.grpStuProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAbout)).BeginInit();
@@ -60,7 +61,8 @@
             this.quationToolStripMenuItem,
             this.ticketToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.profileToolStripMenuItem});
+            this.profileToolStripMenuItem,
+            this.əsasSəhifəToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
             this.menuUser.Name = "menuUser";
             this.menuUser.Size = new System.Drawing.Size(1415, 28);
@@ -219,10 +221,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctMain.Location = new System.Drawing.Point(884, 394);
             this.pctMain.Name = "pctMain";
-            this.pctMain.Size = new System.Drawing.Size(3906, 524);
+            this.pctMain.Size = new System.Drawing.Size(4498, 507);
             this.pctMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctMain.TabIndex = 1;
             this.pctMain.TabStop = false;
+            // 
+            // əsasSəhifəToolStripMenuItem
+            // 
+            this.əsasSəhifəToolStripMenuItem.Name = "əsasSəhifəToolStripMenuItem";
+            this.əsasSəhifəToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.əsasSəhifəToolStripMenuItem.Text = "Əsas səhifə";
+            this.əsasSəhifəToolStripMenuItem.Click += new System.EventHandler(this.əsasSəhifəToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -276,5 +285,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pctMain;
         private System.Windows.Forms.PictureBox pnlAbout;
+        private System.Windows.Forms.ToolStripMenuItem əsasSəhifəToolStripMenuItem;
     }
 }
